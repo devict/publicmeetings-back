@@ -1,0 +1,36 @@
+@startuml
+'Classes which are explictly part of the public API
+class Meeting {
+    +id : String
+    +title : String
+    +description : String
+    +date : Date
+    +addressOne : String
+    +addressTwo : String
+    +city : String
+    +state : String
+    +zip : String
+    +url : String
+}
+
+class Organization {
+    +id : String
+    +name : String
+    +description : String
+    +addressOne : String
+    +addressTwo : String
+    +city : String
+    +state : String
+    +zip : String
+    +url : String
+}
+
+class User {
+    +id : String
+    +firstName : String
+    +lastName : String
+    +username : String
+    +email : String
+    +role : String
+}
+@enduml
