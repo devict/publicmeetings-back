@@ -1,10 +1,16 @@
 @startuml
 'Classes which are explictly part of the public API
+class DataSource {
+    +id : UUID
+    +url : String
+    +format : String
+}
+
 class Meeting {
-    +id : String
+    +id : UUID
     +title : String
     +description : String
-    +date : Date
+    +date : datetime
     +addressOne : String
     +addressTwo : String
     +city : String
@@ -14,7 +20,7 @@ class Meeting {
 }
 
 class Organization {
-    +id : String
+    +id : UUID
     +name : String
     +description : String
     +addressOne : String
@@ -26,7 +32,7 @@ class Organization {
 }
 
 class User {
-    +id : String
+    +id : UUID
     +firstName : String
     +lastName : String
     +username : String
