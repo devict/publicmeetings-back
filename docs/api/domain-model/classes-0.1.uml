@@ -9,6 +9,7 @@ class DataSource {
 class Meeting {
     +id : UUID
     +title : String
+    +subtitle : String
     +description : String
     +date : datetime
     +addressOne : String
@@ -17,6 +18,8 @@ class Meeting {
     +state : String
     +zip : String
     +url : String
+    +agendaUrl : String
+    +minutesUrl : String
 }
 
 class Organization {
