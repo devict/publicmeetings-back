@@ -12,7 +12,7 @@ Models MUST be passed between the server and the client in the `application/json
 
 The id field for every model is a UUID as defined in [IETF RFC 4122](https://doi.org/10.17487/RFC4122). It MUST be passed between the server and the client as a URN string as outlined in section 3 of the same RFC.
 
-All datetime values MUST be passed between the server and the client as (Unix or ISO 8601?).
+All datetime values MUST be passed between the server and the client as ISO 8601.
 
 All url fields MUST contain a valid absolute URI as defined in [IETF RFC 3986](https://doi.org/10.17487/RFC3986). These should use secure versions of schemas (eg. https, ftps, etc.) when possible, but unsecure schemas are acceptable.
 
@@ -43,6 +43,48 @@ A User can 'follow' one or more Organizations. A User may also 'follow' one or m
 
 ## Endpoints
 
-## Authentication
+User/{id}
 
+[Get]
+[Post]
+[Put]
 
+User/{id}/Meetings
+
+[Get]
+
+User/{id}/Meetings/{id}
+
+[Post]
+
+User/{id}/Organizations
+
+[Get]
+
+User/{id}/Organizations/{id}
+
+[Post]
+
+Meeting/{id}
+
+[Get]
+
+Meeting/{id}/Organization
+
+[Get]
+
+Organization/{id}
+
+[Get]
+
+Organization/{id}/Meetings
+
+[Get]
+
+DataSource/{id}
+
+*Administrators Only*
+
+[Get]
+[Post]
+[Put]
