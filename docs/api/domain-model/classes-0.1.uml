@@ -1,0 +1,44 @@
+@startuml
+'Classes which are explictly part of the public API
+class DataSource {
+    +id : UUID
+    +url : String
+    +format : String
+}
+
+class Meeting {
+    +id : UUID
+    +title : String
+    +subtitle : String
+    +date : datetime
+    +addressOne : String
+    +addressTwo : String
+    +city : String
+    +state : String
+    +zip : String
+    +url : String
+    +agendaUrl : String
+    +minutesUrl : String
+}
+
+class Organization {
+    +id : UUID
+    +name : String
+    +description : String
+    +addressOne : String
+    +addressTwo : String
+    +city : String
+    +state : String
+    +zip : String
+    +url : String
+}
+
+class User {
+    +id : UUID
+    +firstName : String
+    +lastName : String
+    +username : String
+    +email : String
+    +role : String
+}
+@enduml
