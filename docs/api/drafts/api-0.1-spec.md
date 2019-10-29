@@ -44,47 +44,38 @@ A User can 'follow' one or more Organizations. A User may also 'follow' one or m
 ## Endpoints
 
 User/{id}
-
 [Get]
 [Post]
 [Put]
 
 User/{id}/Meetings
-
 [Get]
 
 User/{id}/Meetings/{id}
-
 [Post]
+[Delete]
 
 User/{id}/Organizations
-
 [Get]
 
 User/{id}/Organizations/{id}
-
 [Post]
+[Delete]
 
 Meeting/{id}
-
 [Get]
 
 Meeting/{id}/Organization
-
 [Get]
 
 Organization/{id}
-
 [Get]
 
 Organization/{id}/Meetings
-
 [Get]
 
 DataSource/{id}
-
 *Administrators Only*
-
 [Get]
 [Post]
 [Put]
