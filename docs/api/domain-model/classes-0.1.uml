@@ -10,7 +10,6 @@ class Meeting {
     +id : UUID
     +title : String
     +subtitle : String
-    +description : String
     +date : datetime
     +addressOne : String
     +addressTwo : String
