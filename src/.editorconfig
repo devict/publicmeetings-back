@@ -214,7 +214,7 @@ dotnet_naming_rule.oop_items_naming_rule.symbols = oop_items_symbols
 dotnet_naming_symbols.oop_items_symbols.applicable_kinds = namespace,class,struct,enum
 dotnet_naming_symbols.oop_items_symbols.applicable_accessibilities = *
 dotnet_naming_rule.oop_items_naming_rule.style = oop_items_style
-dotnet_naming_style.oop_items_naming_style.capitalization = pascal_case
+dotnet_naming_style.oop_items_style.capitalization = pascal_case
 dotnet_naming_rule.oop_items_naming_rule.severity = warning
 
 # interfaces must have I prefix and be Pascal Case
@@ -222,8 +222,8 @@ dotnet_naming_rule.interface_naming_rule.symbols = interface_symbols
 dotnet_naming_symbols.interface_symbols.applicable_kinds = interface
 dotnet_naming_symbols.interface_symbols.applicable_accessibilities = *
 dotnet_naming_rule.interface_naming_rule.style = interface_style
-dotnet_naming_style.interface_naming_style.required_prefix = I
-dotnet_naming_style.interface_naming_style.capitalization = pascal_case
+dotnet_naming_style.interface_style.required_prefix = I
+dotnet_naming_style.interface_style.capitalization = pascal_case
 dotnet_naming_rule.interface_naming_rule.severity = warning
 
 # public, internal, and protected internal members should be Pascal Case
