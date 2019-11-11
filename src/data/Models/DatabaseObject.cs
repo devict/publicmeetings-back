@@ -12,7 +12,7 @@ namespace DevIct.PublicMeetings.Back.Data.Models
         /// <summary>
         /// Creates a new <see cref="DatabaseObject"/>.
         /// </summary>
-        public DatabaseObject()
+        protected DatabaseObject()
         {
             _id = Guid.NewGuid();
         }
@@ -21,7 +21,7 @@ namespace DevIct.PublicMeetings.Back.Data.Models
         /// Creates a new <see cref="DatabaseObject"/> with <paramref name="id"/>
         /// as its unique ID.
         /// </summary>
-        public DatabaseObject(Guid id)
+        protected DatabaseObject(Guid id)
         {
             _id = id;
         }
