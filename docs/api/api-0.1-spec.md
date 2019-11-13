@@ -1,5 +1,7 @@
 # API v0.1 Specification
 
+**This specification has been obsoleted by v0.2**
+
 ## Models
 
 API v0.1 exposes four models: DataSource, Meeting, Organization, and User. The data points for these models and their relations to each other are depicted in the Domain Model below.
