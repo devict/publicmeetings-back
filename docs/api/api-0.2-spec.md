@@ -43,39 +43,57 @@ A User can 'follow' one or more Organizations. A User may also 'follow' one or m
 
 ## Endpoints
 
+### Paging
+
+The Get methods for collection endpoints support paging of the results returned. The fields to pass for paging are:
+
+* `page`: The page number to retrieve. Defaults to 1.
+* `pageSize`: The maximum number of results to return. If >= 0, returns all results. Defaults to 0.
+
 User/{id}
-[Get]
-[Post]
-[Put]
+
+* [Get]
+* [Post]
+* [Put]
 
 User/{id}/Meetings
-[Get]
+
+* [Get] *supports paging*
 
 User/{id}/Meetings/{id}
-[Post]
-[Delete]
+
+* [Post]
+* [Delete]
 
 User/{id}/Organizations
-[Get]
+
+* [Get] *supports paging*
 
 User/{id}/Organizations/{id}
-[Post]
-[Delete]
+
+* [Post]
+* [Delete]
+[Get]
 
 Meeting/{id}
-[Get]
+
+* [Get]
 
 Meeting/{id}/Organization
-[Get]
+
+* [Get]
 
 Organization/{id}
-[Get]
+
+* [Get]
 
 Organization/{id}/Meetings
-[Get]
+
+* [Get] *supports paging*
 
 DataSource/{id}
 *Administrators Only*
-[Get]
-[Post]
-[Put]
+
+* [Get]
+* [Post]
+* [Put]
