@@ -48,7 +48,7 @@ A User can 'follow' one or more Organizations. A User may also 'follow' one or m
 The Get methods for collection endpoints support paging of the results returned. The fields to pass for paging are:
 
 * `page`: The page number to retrieve. Defaults to 1.
-* `pageSize`: The maximum number of results to return. If >= 0, returns all results. Defaults to 0.
+* `pageSize`: The maximum number of results to return. If <= 0, returns all results. Defaults to 0.
 
 User/{id}
 
