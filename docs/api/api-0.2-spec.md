@@ -1,12 +1,10 @@
-# API v0.1 Specification
-
-**This specification has been obsoleted by v0.2**
+# API v0.2 Specification
 
 ## Models
 
-API v0.1 exposes four models: DataSource, Meeting, Organization, and User. The data points for these models and their relations to each other are depicted in the Domain Model below.
+API v0.2 exposes four models: DataSource, Meeting, Organization, and User. The data points for these models and their relations to each other are depicted in the Domain Model below.
 
-![alt text](./domain-model/domain-model-0.1.png "Domain Model v0.1")
+![alt text](./domain-model/domain-model-0.2.png "Domain Model v0.2")
 
 ### General
 
@@ -22,7 +20,7 @@ All url fields MUST contain a valid absolute URI as defined in [IETF RFC 3986](h
 
 *All DataSources must be linked to exactly one Organization.*
 
-This model includes information necessary for the Data project to process a unique data source. The format field MUST contain a valid MIME Media Type as defined in [IETF RFC 2046](https://doi.org/10.17487/RFC2046).
+This model includes information necessary for the Data project to process a unique data source. The parserOptions field MUST contain a `application/json` string that defines the options for parsing the data source.
 
 ### Meeting
 
@@ -45,39 +43,57 @@ A User can 'follow' one or more Organizations. A User may also 'follow' one or m
 
 ## Endpoints
 
+### Paging
+
+The Get methods for collection endpoints support paging of the results returned. The fields to pass for paging are:
+
+* `page`: The page number to retrieve. Defaults to 1.
+* `pageSize`: The maximum number of results to return. If <= 0, returns all results. Defaults to 0.
+
 User/{id}
-[Get]
-[Post]
-[Put]
+
+* [Get]
+* [Post]
+* [Put]
 
 User/{id}/Meetings
-[Get]
+
+* [Get] *supports paging*
 
 User/{id}/Meetings/{id}
-[Post]
-[Delete]
+
+* [Post]
+* [Delete]
 
 User/{id}/Organizations
-[Get]
+
+* [Get] *supports paging*
 
 User/{id}/Organizations/{id}
-[Post]
-[Delete]
+
+* [Post]
+* [Delete]
+[Get]
 
 Meeting/{id}
-[Get]
+
+* [Get]
 
 Meeting/{id}/Organization
-[Get]
+
+* [Get]
 
 Organization/{id}
-[Get]
+
+* [Get]
 
 Organization/{id}/Meetings
-[Get]
+
+* [Get] *supports paging*
 
 DataSource/{id}
 *Administrators Only*
-[Get]
-[Post]
-[Put]
+
+* [Get]
+* [Post]
+* [Put]
