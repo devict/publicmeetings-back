@@ -79,5 +79,16 @@ namespace DevIct.PublicMeetings.Back.Data
         {
             return IdNotFound(item.Id, item.GetType().Name);
         }
+
+        /// <summary>
+        /// Creates a new <see cref="DataError"/> for connection issues.
+        /// </summary>
+        /// <param name="details">
+        /// A description of what type of connection issue occured.
+        /// </param>
+        internal static DataError ConnectionError(string details)
+        {
+            return new DataError(2, $"There was an error connecting to the datasource:{Environment.NewLine}{details}");
+        }
     }
 }

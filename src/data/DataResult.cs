@@ -56,25 +56,10 @@ namespace DevIct.PublicMeetings.Back.Data
     /// <typeparam name="TResult">
     /// The type of the result the data operation returns.
     /// </typeparam>
-    public sealed class DataResult<TResult> : DataResult where TResult : new()
+    public abstract class DataResult<TResult> : DataResult
     {
-        private readonly TResult _result;
-
-        /// <summary>
-        /// Initializes a <see cref="DataResult{TResult}"/>.
-        /// </summary>
-        /// <param name="success">
-        /// Whether the data operation was successful or not.
-        /// </param>
-        /// <param name="result">
-        /// The result of the operation.
-        /// </param>
-        /// <param name="errors">
-        /// The errors that occurred to make the operation fail.
-        /// </param>
-        private DataResult(bool success, TResult result, DataError[]? errors = null) : base(success, errors)
+        private DataResult(bool success, DataError[]? errors = null) : base(success, errors)
         {
-            _result = result;
         }
 
         /// <summary>
@@ -83,14 +68,7 @@ namespace DevIct.PublicMeetings.Back.Data
         /// <exception cref="System.InvalidOperationException"/>
         /// Thrown when trying to access the result of a failed operation.
         /// </exception>
-        public TResult GetResult()
-        {
-            if (!Succeeded)
-            {
-                throw new System.InvalidOperationException("Cannot access result of failed operation");
-            }
-            return _result;
-        }
+        public abstract TResult GetResult();
 
         /// <summary>
         /// Creates a new <see cref="DataResult{TResult}"/> for a successful operation.
@@ -100,7 +78,7 @@ namespace DevIct.PublicMeetings.Back.Data
         /// </param>
         internal static new DataResult<TResult> Success(TResult result)
         {
-            return new DataResult<TResult>(true, result);
+            return new SuccessfulResult(result);
         }
 
         /// <summary>
@@ -111,7 +89,46 @@ namespace DevIct.PublicMeetings.Back.Data
         /// </param>
         internal static new DataResult<TResult> Failure(params DataError[] errors)
         {
-            return new DataResult<TResult>(false, new TResult(), errors);
+            return new FailedResult(errors);
+        }
+
+        private class SuccessfulResult : DataResult<TResult>
+        {
+            private readonly TResult _result;
+
+            /// <summary>
+            /// Initializes a <see cref="SuccessfulResult"/>.
+            /// </summary>
+            /// <param name="result">
+            /// The result of the operation.
+            /// </param>
+            public SuccessfulResult(TResult result) : base(true)
+            {
+                _result = result;
+            }
+
+            public override TResult GetResult()
+            {
+                return _result;
+            }
+        }
+
+        private class FailedResult : DataResult<TResult>
+        {
+            /// <summary>
+            /// Initializes a <see cref="FailedResult"/>.
+            /// </summary>
+            /// <param name="errors"/>
+            /// The errors that caused the result to fail.
+            /// </param>
+            public FailedResult(DataError[]? errors) : base(false, errors)
+            {
+            }
+
+            public override TResult GetResult()
+            {
+                throw new System.InvalidOperationException("Cannot access result of a failed operation");
+            }
         }
     }
 }
