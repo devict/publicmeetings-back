@@ -1,0 +1,15 @@
+@startuml
+
+skinparam nodesep 100
+hide empty members
+
+User "0..*" -- "0..*" Organization
+User "0..*" -- "0..*" Meeting
+Organization "1" *-right- "0..*" Meeting
+DataSource "0..*" -left-* "1" Organization
+Organization "1" *-- "0..*" Url
+Meeting "1" *-- "0..*" Url
+
+!include classes-0.2.uml
+
+@enduml
