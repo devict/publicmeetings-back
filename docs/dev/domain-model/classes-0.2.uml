@@ -1,0 +1,56 @@
+@startuml
+'Classes for the internal domain model used to communicate between the API and the data source
+class Address {
+    +AddressOne : string?
+    +AddressTwo : string?
+    +City : string?
+    +State : string?
+    +Zip : string?
+}
+
+abstract class DatabaseObject {
+    +Id : Guid
+}
+
+class DataSource<derived from DatabaseObject> {
+    +ParserOptions : string
+}
+
+class Meeting<derived from DatabaseObject> {
+    +Date : DateTimeOffset
+    +Title : string
+    +SubTitle : string?
+    +Address : Address?
+}
+
+class Organization<derived from DatabaseObject> {
+    +Name : string
+    +Description : string?
+    +Address : Address?
+}
+
+class Url<derived from DatabaseObject> {
+    +Uri : Uri
+    +Type : UrlType
+}
+
+enum UrlType {
+    General
+    Agenda
+    Minutes
+}
+
+class User<derived from DatabaseObject> {
+    +FirstName : string
+    +LastName : string
+    +Username : string
+    +Role : UserRole
+    +Email : string?
+}
+
+enum UserRole {
+    User
+    Administrator
+}
+
+@enduml
