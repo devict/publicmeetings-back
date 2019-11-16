@@ -105,5 +105,29 @@ namespace DevIct.PublicMeetings.Back.Data.Managers
         /// <paramref name="meeting"/> belongs to.
         /// </returns>
         Task<DataResult<Organization>> GetOrganization(Meeting meeting);
+
+        /// <summary>
+        /// Retrieves all the <see cref="Url"/>s associated with <paramref name="meeting"/>
+        /// of <paramref name="type"/>.
+        /// </summary>
+        /// <param name="meeting">
+        /// The <see cref="Meeting"/> to retrieve <see cref="Url"/>s for.
+        /// </param>
+        /// <param name="type">
+        /// The <see cref="UrlType"/> of <see cref="Url"/>s to retrieve.
+        /// If null (default), retrieves all <see cref="Url"/>s.
+        /// </param>
+        /// <param name="pageRequest">
+        /// The page information for the request. Default is null, which retrieves all records.
+        /// </param>
+        /// <returns>
+        /// A <see cref="Task{TResult}"/> that contains the <see cref="DataResult{TResult}"/>
+        /// for the operation. It will have the <see cref="Url"/>s that
+        /// associated with <paramref name="meeting"/> of <paramref name="type"/>, if any.
+        /// </returns>
+        Task<DataResult<PagedResult<Url>>> GetUrls(
+                Meeting meeting,
+                UrlType? type = null,
+                PageRequest? pageRequest = null);
     }
 }

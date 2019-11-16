@@ -74,5 +74,29 @@ namespace DevIct.PublicMeetings.Back.Data.Managers
         Task<DataResult<PagedResult<Organization>>> FindByUser(
                 User user,
                 PageRequest? pageRequest = null);
+
+        /// <summary>
+        /// Retrieves all the <see cref="Url"/>s associated with <paramref name="organization"/>
+        /// of <paramref name="type"/>.
+        /// </summary>
+        /// <param name="organization">
+        /// The <see cref="Organization"/> to retrieve <see cref="Url"/>s for.
+        /// </param>
+        /// <param name="type">
+        /// The <see cref="UrlType"/> of <see cref="Url"/>s to retrieve.
+        /// If null (default), retrieves all <see cref="Url"/>s.
+        /// </param>
+        /// <param name="pageRequest">
+        /// The page information for the request. Default is null, which retrieves all records.
+        /// </param>
+        /// <returns>
+        /// A <see cref="Task{TResult}"/> that contains the <see cref="DataResult{TResult}"/>
+        /// for the operation. It will have the <see cref="Url"/>s that
+        /// associated with <paramref name="organization"/> of <paramref name="type"/>, if any.
+        /// </returns>
+        Task<DataResult<PagedResult<Url>>> GetUrls(
+                Organization organization,
+                UrlType? type = null,
+                PageRequest? pageRequest = null);
     }
 }

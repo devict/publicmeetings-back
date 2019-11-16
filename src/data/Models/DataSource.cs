@@ -10,22 +10,22 @@ namespace DevIct.PublicMeetings.Back.Data.Models
         /// <summary>
         /// Creates a <see cref="DataSource"/> from an existing record.
         /// </summary>
-        public DataSource(Guid id, string format) : base(id)
+        public DataSource(Guid id, string parserOptions) : base(id)
         {
-            Format = format;
+            ParserOptions = parserOptions;
         }
 
         /// <summary>
         /// Creates a new <see cref="DataSource"/>.
         /// </summary>
-        public DataSource(string format) : this(Guid.NewGuid(), format)
+        public DataSource(string parserOptions) : this(Guid.NewGuid(), parserOptions)
         {
 
         }
 
         /// <summary>
-        /// Gets or sets the format string for the data source.
+        /// Gets or sets the parser options string for the data source.
         /// </summary>
-        public virtual string Format { get; set; }
+        public virtual string ParserOptions { get; set; }
     }
 }
