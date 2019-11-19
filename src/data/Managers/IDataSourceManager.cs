@@ -15,11 +15,14 @@ namespace DevIct.PublicMeetings.Back.Data.Managers
         /// <param name="dataSource">
         /// The <see name="DataSource"/> to create a record for.
         /// </param>
+        /// <param name="url">
+        /// The <see cref="Url"/> that belongs to <paramref name="dataSource"/>.
+        /// </param>
         /// <returns>
         /// A <see cref="Task{TResult}"/> that contains the <see cref="DataResult"/>
         /// for the operation.
         /// </returns>
-        Task<DataResult> Create(DataSource dataSource);
+        Task<DataResult> Create(DataSource dataSource, Url url);
 
         /// <summary>
         /// Updates the data in the data source for <paramref name="dataSource"/>
@@ -78,7 +81,7 @@ namespace DevIct.PublicMeetings.Back.Data.Managers
         /// <summary>
         /// Retrieves the <see cref="Organization"/> that <paramref name="dataSource"/> belongs to.
         /// </summary>
-        /// <param name="dataSource"/>
+        /// <param name="dataSource">
         /// The <see cref="DataSource"/> to retrieve the <see cref="Organization"/> for.
         /// </param>
         /// <returns>
@@ -87,5 +90,33 @@ namespace DevIct.PublicMeetings.Back.Data.Managers
         /// <paramref name="dataSource"/> belongs to.
         /// </returns>
         Task<DataResult<Organization>> GetOrganization(DataSource dataSource);
+
+        /// <summary>
+        /// Retrieves the <see cref="Url"/> for <paramref name="dataSource"/>.
+        /// </summary>
+        /// <param name="dataSource">
+        /// The <see cref="DataSource"/> to retrieve the <see cref="Url"/> for.
+        /// </param>
+        /// <returns>
+        /// A <see cref="Task{TResult}"/> that contains the <see cref="DataResult{TResult}"/>
+        /// for the operation. It will have the <see cref="Url"/> that belongs to
+        /// <paramref name="dataSource"/>.
+        /// </returns>
+        Task<DataResult<Url>> GetUrl(DataSource dataSource);
+
+        /// <summary>
+        /// Sets the <see cref="Url"/> that belongs to <paramref name="dataSource"/>.
+        /// </summary>
+        /// <param name="dataSource">
+        /// The <see cref="DataSource"/> that <paramref name="url"/> belongs to.
+        /// </param>
+        /// <param name="url">
+        /// The <see cref="Url"/> that belongs to <paramref name="dataSource"/>.
+        /// </param>
+        /// <returns>
+        /// A <see cref="Task{TResult}"/> that contains the <see cref="DataResult"/>
+        /// for the operation.
+        /// </returns>
+        Task<DataResult> SetUrl(DataSource dataSource, Url url);
     }
 }
