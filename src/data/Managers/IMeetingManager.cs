@@ -129,5 +129,37 @@ namespace DevIct.PublicMeetings.Back.Data.Managers
                 Meeting meeting,
                 UrlType? type = null,
                 PageRequest? pageRequest = null);
+
+        /// <summary>
+        /// Adds <paramref name="url"/> to the list of <see cref="Url"/>s for
+        /// <paramref name="meeting"/>.
+        /// </summary>
+        /// <param name="meeting">
+        /// The <see cref="Meeting"/> to add <paramref name="url"/> to.
+        /// </param>
+        /// <param>
+        /// The <see cref="Url"/> to add to <paramref name="meeting"/>.
+        /// </param>
+        /// <returns>
+        /// A <see cref="Task{TResult}"/> that contains the <see cref="DataResult"/>
+        /// for the operation.
+        /// </returns>
+        Task<DataResult> AddUrl(Meeting meeting, Url url);
+
+        /// <summary>
+        /// Removes <paramref name="url"/> from the list of <see cref="Url"/>s for
+        /// <paramref name="meeting"/>.
+        /// </summary>
+        /// <param name="meeting">
+        /// The <see cref="Meeting"/> to remove <paramref name="url"/> from.
+        /// </param>
+        /// <param>
+        /// The <see cref="Url"/> to remove from <paramref name="meeting"/>.
+        /// </param>
+        /// <returns>
+        /// A <see cref="Task{TResult}"/> that contains the <see cref="DataResult"/>
+        /// for the operation.
+        /// </returns>
+        Task<DataResult> RemoveUrl(Meeting meeting, Url url);
     }
 }
