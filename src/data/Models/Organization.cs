@@ -40,12 +40,12 @@ namespace DevIct.PublicMeetings.Back.Data.Models
         /// Gets or sets the name of the organization.
         /// </summary>
         public virtual string Name { get; set; }
-        
+
         /// <summary>
         /// Gets or sets a brief description of the organization.
         /// </summary>
         public virtual string? Description { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the location of the organization.
         /// </summary>
