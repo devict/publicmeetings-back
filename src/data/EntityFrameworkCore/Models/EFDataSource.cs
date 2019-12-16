@@ -15,6 +15,6 @@ namespace DevIct.PublicMeetings.Back.Data.EntityFrameworkCore.Models
 
         }
 
-        public EFOrganization Organization { get; set; }
+        public EFOrganization Organization { get; set; } = null!;
     }
 }

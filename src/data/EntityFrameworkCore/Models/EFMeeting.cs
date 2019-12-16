@@ -31,7 +31,7 @@ namespace DevIct.PublicMeetings.Back.Data.EntityFrameworkCore.Models
 
         }
 
-        public EFOrganization Organization { get; set; }
+        public EFOrganization Organization { get; set; } = null!;
         public ICollection<UserMeeting> UserRecords { get; set; } = new HashSet<UserMeeting>();
     }
 }
