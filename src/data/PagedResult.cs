@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DevIct.PublicMeetings.Back.Data
 {
@@ -13,7 +14,7 @@ namespace DevIct.PublicMeetings.Back.Data
         /// <summary>
         /// Creates a new <see cref="PagedResult{TResult}"/>
         /// </summary>
-        /// <param name="results"/>
+        /// <param name="results">
         /// The results being returned.
         /// </param>
         /// <param name="pageInfo">
@@ -23,6 +24,23 @@ namespace DevIct.PublicMeetings.Back.Data
             : base(results)
         {
             PageInfo = pageInfo;
+        }
+
+        /// <summary>
+        /// Creates a new <see cref="PagedResult{TResult}"/> using all returned results.
+        /// </summary>
+        /// <param name="allResults">
+        /// All results of the query performed.
+        /// </param>
+        /// <param name="request">
+        /// The <see cref="PageRequest"/> to trim results to.
+        /// </param>
+        public PagedResult(IEnumerable<TResult> allResults, PageRequest request)
+            : base()
+        {
+            int total = allResults.Count();
+            PageInfo = new PageInfo(request, total);
+            AddRange(allResults.Skip(PageInfo.Skip).Take(PageInfo.PageSize));
         }
 
         /// <summary>

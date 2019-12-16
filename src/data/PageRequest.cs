@@ -22,7 +22,7 @@ namespace DevIct.PublicMeetings.Back.Data
         /// <param name="pageSize"/>
         /// The size of the pages.
         /// </param>
-        public PageRequest(uint page, uint pageSize)
+        public PageRequest(int page, int pageSize)
         {
             Page = page;
             PageSize = pageSize;
@@ -31,7 +31,7 @@ namespace DevIct.PublicMeetings.Back.Data
         /// <summary>
         /// Gets the page number to retrieve with the request.
         /// </summary>
-        public uint Page { get; }
+        public int Page { get; protected set; }
 
         /// <summary>
         /// Gets the size of page to retrieve.
@@ -39,6 +39,11 @@ namespace DevIct.PublicMeetings.Back.Data
         /// <remarks>
         /// If this is 0 (default), the request will retrieve all records.
         /// </remarks>
-        public uint PageSize { get; }
+        public int PageSize { get; }
+
+        /// <summary>
+        /// Gets the number of items to skip.
+        /// </summary>
+        internal int Skip => (Page - 1) * PageSize;
     }
 }
