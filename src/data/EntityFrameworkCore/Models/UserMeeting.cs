@@ -38,7 +38,6 @@ namespace DevIct.PublicMeetings.Back.Data.EntityFrameworkCore.Models
         /// </summary>
         public EFUser User { get; set; }
 
-
         /// <summary>
         /// Gets or sets the <see cref="EFMeeting"/> the record is associated with.
         /// </summary>
