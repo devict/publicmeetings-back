@@ -17,15 +17,24 @@ namespace DevIct.PublicMeetings.Back.Data
         /// <param name="page"/>
         /// The actual page number returned. If null, uses the page number of <paramref name="request"/>.
         /// </param>
-        public PageInfo(PageRequest request, uint total, uint? page = null)
-            : base(page ?? request.Page, request.PageSize)
+        public PageInfo(PageRequest request, int total)
+            : base(request.Page, request.PageSize)
         {
             Total = total;
+            if (Page > Pages)
+            {
+                Page = Pages;
+            }
         }
 
         /// <summary>
         /// Gets the total number of results which matched the parameters of the request.
         /// </summary>
-        public uint Total { get; }
+        public int Total { get; }
+
+        /// <summary>
+        /// Gets the total number of pages for the results being represented.
+        /// </summary>
+        public int Pages => (PageSize / Total) + 1;
     }
 }
